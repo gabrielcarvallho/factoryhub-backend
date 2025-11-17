@@ -1,8 +1,53 @@
-.env.dev
-.env.prod
+# Environment variables
+.env
+.env.*
+*.env
 
-.vscode
-.vs
+# IDE
+.vscode/
+.vs/
+.idea/
+*.swp
+*.swo
+*~
 
-venv
+# Python
+venv/
+env/
+ENV/
+.venv/
 **/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-journal
+/staticfiles/
+/media/
+
+# OS
+.DS_Store
+Thumbs.db
+*.bak
+
+# Docker
+.dockerignore
+
+# Local development
+*.local

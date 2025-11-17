@@ -1,0 +1,17 @@
+name: FactoryHub CI/CD
+
+on:
+  pull_request:
+    branches:
+      - master
+    types: [opened, reopened, synchronize, closed]
+
+jobs:
+  test:
+    uses: gabrielcarvallho/factoryhub-backend/.github/workflows/_ci.yml@master
+
+  deploy:
+    needs: test
+    if: github.event.pull_request.merged == true
+    uses: gabrielcarvallho/factoryhub-backend/.github/workflows/_cd.yml@master
+    secrets: inherit

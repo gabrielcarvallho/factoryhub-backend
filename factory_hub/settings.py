@@ -106,10 +106,12 @@ if os.getenv('DATABASE_URL'):
             conn_max_age=600,
         )
     }
+    # Force IPv4 backend for Render compatibility
+    DATABASES['default']['ENGINE'] = 'factory_hub.db_backend'
 else:
     DATABASES = {
         'default': {
-            'ENGINE': os.getenv('DATABASE_ENGINE'),
+            'ENGINE': 'factory_hub.db_backend',  # Custom backend for IPv4
             'NAME': os.getenv('DATABASE_NAME'),
             'USER': os.getenv('DATABASE_USER'),
             'PASSWORD': os.getenv('DATABASE_PASSWORD'),
